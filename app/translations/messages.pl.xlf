@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.first_name">
+                <source>label.first_name</source>
+                <target>Imię</target>
+            </trans-unit>
+            <trans-unit id="label.last_name">
+                <source>label.last_name</source>
+                <target>Nazwisko</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Adres e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.phone_number">
+                <source>label.phone_number</source>
+                <target>Numer telefonu</target>
+            </trans-unit>
+            <trans-unit id="label.phone_number_type">
+                <source>label.phone_number_type</source>
+                <target>Rodzaj numeru telefonu</target>
+            </trans-unit>
+            <trans-unit id="label.phone_number_type_landline">
+                <source>label.phone_number_type_landline</source>
+                <target>Stacjonarny</target>
+            </trans-unit>
+            <trans-unit id="label.phone_number_type_mobile">
+                <source>label.phone_number_type_mobile</source>
+                <target>Komórkowy</target>
+            </trans-unit>
+            <trans-unit id="label.contact_groups">
+                <source>label.contact_groups</source>
+                <target>Grupy</target>
+            </trans-unit>
+            <trans-unit id="label.status">
+                <source>label.status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="label.active">
+                <source>label.active</source>
+                <target>Aktywny</target>
+            </trans-unit>
+            <trans-unit id="label.inactive">
+                <source>label.inactive</source>
+                <target>Nieaktywny</target>
+            </trans-unit>
+            <trans-unit id="label.none">
+                <source>label.none</source>
+                <target>Brak</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Akcje</target>
+            </trans-unit>
+            <trans-unit id="title.contact_list">
+                <source>title.contact_list</source>
+                <target>Lista kontaktów</target>
+            </trans-unit>
+            <trans-unit id="title.contact_edit">
+                <source>title.contact_edit</source>
+                <target>Edycja kontaktu #%id%</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Zapisz</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Powrót do listy</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>Lista jest pusta.</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>Kontakt został pomyślnie zaktualizowany.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

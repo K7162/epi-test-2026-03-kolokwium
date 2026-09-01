@@ -53,24 +53,24 @@ RUN set -eux; \
         echo 'display_errors = On'; \
     } > /usr/local/etc/php/conf.d/error_reporting.ini
 
-# Install xdebug
-RUN	set -eux; \
-    pecl install xdebug && \
-    docker-php-ext-enable xdebug
-RUN set -eux; \
-    if php -m | grep -qi xdebug; then \
-        { \
-            echo 'zend_extension=xdebug'; \
-            echo 'xdebug.mode=develop,coverage,debug,trace'; \
-            echo 'xdebug.start_with_request=trigger'; \
-            echo 'xdebug.client_port=9003'; \
-            echo 'xdebug.idekey=PHPSTORM'; \
-            echo 'xdebug.discover_client_host=1'; \
-            echo 'xdebug.var_display_max_children=128'; \
-            echo 'xdebug.var_display_max_data=512'; \
-            echo 'xdebug.var_display_max_depth=3'; \
-        } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
-    fi
+## Install xdebug
+#RUN	set -eux; \
+#    pecl install xdebug && \
+#    docker-php-ext-enable xdebug
+#RUN set -eux; \
+#    if php -m | grep -qi xdebug; then \
+#        { \
+#            echo 'zend_extension=xdebug'; \
+#            echo 'xdebug.mode=develop,coverage,debug,trace'; \
+#            echo 'xdebug.start_with_request=trigger'; \
+#            echo 'xdebug.client_port=9003'; \
+#            echo 'xdebug.idekey=PHPSTORM'; \
+#            echo 'xdebug.discover_client_host=1'; \
+#            echo 'xdebug.var_display_max_children=128'; \
+#            echo 'xdebug.var_display_max_data=512'; \
+#            echo 'xdebug.var_display_max_depth=3'; \
+#        } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
+#    fi
 
 # Install Node.js
 RUN	set -eux; \

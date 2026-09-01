@@ -8,6 +8,8 @@ use App\Repository\ContactRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -18,15 +20,26 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 128)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 128)]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 128)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 128)]
     private ?string $lastName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Email]
+    #[Assert\Length(max: 255)]
     private ?string $email = null;
 
     #[ORM\Column(length: 32, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^\+48 (\d{3} \d{3} \d{3}|\d{2} \d{3} \d{2} \d{2})$/',
+        message: 'Nieprawidłowy format numeru telefonu. Wymagany format: +48 123 456 789 lub +48 12 345 67 89.'
+    )]
     private ?string $phone_number = null;
 
     /**
@@ -40,6 +53,16 @@ class Contact
 
     #[ORM\Column(nullable: true, enumType: PhoneNumberType::class)]
     private ?PhoneNumberType $phone_number_type = null;
+
+    #[Assert\Callback]
+    public function validatePhoneNumberType(ExecutionContextInterface $context): void
+    {
+        if (null !== $this->phone_number && null === $this->phone_number_type) {
+            $context->buildViolation('To pole jest wymagane, gdy podano numer telefonu.')
+                ->atPath('phone_number_type')
+                ->addViolation();
+        }
+    }
 
     public function __construct()
     {
@@ -140,7 +163,7 @@ class Contact
         return $this->phone_number_type;
     }
 
-    public function setPhoneNumberType(PhoneNumberType $phone_number_type): static
+    public function setPhoneNumberType(?PhoneNumberType $phone_number_type): static
     {
         $this->phone_number_type = $phone_number_type;
 
